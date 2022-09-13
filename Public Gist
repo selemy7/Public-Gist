@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script type="text/javascript">
+		function convertDollarToBTC() {
+			event.preventDefault();
+			var bitcoinRate = document.getElementById('bitcoin_rate').value;
+			var numberDollars = document.getElementById('number_dollars').value;
+			var result = 'Кількість Bitcoin, що можна купити = ' + (numberDollars / bitcoinRate).toFixed(7) + ' BTC';
+			document.getElementById('result').value = result;
+			const span = document.getElementById('result');
+			span.innerHTML = `<span>${result}</span>`;
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<div>
+			<span>Курс Bitcoin до доллара</span>
+			<input type="number" name="bitcoin_rate" id="bitcoin_rate">
+		</div>
+		<div style="margin-top: 10px;">
+			<span> Сума доларів, яку хочете поміняти на Bitcoin</span>
+			<input class="summ" type="number" name="number_dollars" id="number_dollars">
+		</div>
+		<div style="margin-top: 10px;">
+			<input type="submit" name="" value="Розрахувати" class="btn btn-primary btn-lg" onclick="convertDollarToBTC()">
+		</div>
+	</form>
+	<div style="margin-top: 10px;">
+		<span id="result" name="result"></span>
+	</div>
+</body>
+</html>
